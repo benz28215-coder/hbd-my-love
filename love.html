@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ffafbd;
+            --dark-pink: #ff8e9e;
+            --text-color: #5d5d5d;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Mali', cursive;
+            background-color: #ffeef0;
+            color: var(--text-color);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* พื้นหลังหัวใจร่วง */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh) rotate(360deg); }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px; /* ขยายขนาดกล่องเล็กน้อยเพื่อให้ใส่ 2 รูปได้สวย */
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            min-height: 550px; /* เพิ่มความสูงขั้นต่ำรองรับรูปและข้อความ */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page { display: none; animation: fadeIn 0.8s ease; width: 100%;}
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ส่วนจัดวางรูปภาพ 2 รูป */
+        .photo-pair {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* ระยะห่างระหว่างรูป */
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        img {
+            width: 140px; /* ปรับขนาดรูปให้พอดีเมื่ออยู่คู่กัน */
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover; /* ป้องกันรูปเบี้ยว */
+            border: 5px solid var(--primary-pink);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 { color: var(--dark-pink); margin-bottom: 15px; font-size: 1.5em;}
+        p { line-height: 1.6; font-size: 1.05em; margin: 0 auto 15px auto; max-width: 90%;}
+
+        .btn-next {
+            background: var(--dark-pink);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-family: 'Mali', cursive;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-next:hover { background: #ff7485; transform: scale(1.05); }
+
+        /* ปรับปรุงการแสดงผลบนมือถือ */
+        @media (max-width: 400px) {
+            img {
+                width: 110px;
+                height: 110px;
+            }
+            .container {
+                min-height: 500px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page active" id="p1">
+        <div class="photo-pair">
+            <img src="1 (1).jpg" alt="รูปคู่ 1">
+        </div>
+        <h2>Hi kuppp </h2>
+        <p>Happy Birthday to you naaa ❤️ <br>เค้ามีอะไรจะบอกด้วยแหละ</p>
+        <button class="btn-next" onclick="nextPage(2)">คลิกดูสิ! ⮕</button>
+    </div>
+
+    <div class="page" id="p2">
+        <div class="photo-pair">
+            <img src="1 (10).jpg" alt="รูปคู่ 3">
+        </div>
+        <p>วันเกิดปีนี้เค้าขอให้เธอมีความสุขในทุกๆ วัน 
+        <br>ไม่ว่าจะเจอเรื่องอะไร ขอให้แฮปปี้กับทุกอย่างที่เกิดขึ้นนะคั้บบ อยากให้เธอยิ้มเยอะๆ เค้าชอบตอนเธอยิ้มที่สุดเลยย
+        ไม่ว่าจะเจออะไรขอให้ผ่านไปได้ด้วยดีทุกเรื่องเลยน้าา</p>
+        <button class="btn-next" onclick="nextPage(3)">มีอีกนะ... ⮕</button>
+    </div>
+
+    <div class="page" id="p3">
+        <div class="photo-pair">
+            <img src="1 (4).jpg" alt="รูปคู่ 5">
+        </div>
+        <h2>you can do it!</h2>
+        <p>ไม่ว่าจะเกิดอะไรขึ้น<br>ต่อไปนี้ อนาคตของเธอ การทำงานหรือเริ่มต้นทำอะไรใหม่ๆ 
+            มันอาจจะยากหรือต้องพยายาม แต่เค้าเชื่อในตัวเธอนะ ว่าเธอจะทำมันได้ เค้าภูมิใจในตัวเธอที่สุดเลยยย ❤️<br></p>
+        <button class="btn-next" onclick="nextPage(4)">ต่อไป ⮕</button>
+    </div>
+
+    <div class="page" id="p4">
+        <div class="photo-pair">
+            <img src="1 (6).jpg" alt="รูปคู่ 7">
+        </div>
+        <h2>เพื่ออนาคตของเธอ 🌈</h2>
+        <p>อยากให้เธอโฟกัสที่อนาคตของเธอนะ<br>
+        ขอให้เธอได้พบเจอแต่คนดีๆ ที่จริงใจกับเธอ<br>
+        ไม่ว่าเธอจะไปอยู่ที่ไหน หรือทำอะไรก็ตาม</p>
+        <button class="btn-next" onclick="nextPage(5)">และ.. ⮕</button>
+    </div>
+
+    <div class="page" id="p5">
+        <div class="photo-pair">
+            <img src="1 (3).jpg" alt="รูปคู่ 9">
+            <img src="1 (8).jpg" alt="รูปคู่ 9">
+        </div>
+        <h2>เค้าจะคอยซัพพอร์ตเธอเสมอ 🌟</h2>
+        <p>ไม่ว่าทางข้างหน้าจะเป็นยังไง 
+            หันมาจะเจอเค้าเสมอ<br>
+        สู้ๆ กับการทำงานและชีวิตใหม่นะคนเก่งง<br>
+        </p>
+        <button class="btn-next" onclick="location.reload()">อ่านอีกรอบ ↺</button>
+    </div>
+</div>
+
+<script>
+    // ฟังก์ชันเปลี่ยนหน้า
+    function nextPage(pageNum) {
+        // ซ่อนทุกหน้า
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // แสดงหน้าทีต้องการ
+        const nextPage = document.getElementById('p' + pageNum);
+        if(nextPage) {
+            nextPage.classList.add('active');
+        }
+    }
+
+    // สร้างหัวใจร่วงหล่น
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        heart.style.opacity = Math.random();
+        document.body.appendChild(heart);
+
+        setTimeout(() => { heart.remove(); }, 5000);
+    }
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
